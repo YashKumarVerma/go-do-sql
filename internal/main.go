@@ -2,10 +2,11 @@ package main
 
 import (
 	"github.com/YashKumarVerma/go-do-sql/internal/config"
-	ui "github.com/YashKumarVerma/go-lib-ui"
+	"github.com/YashKumarVerma/go-do-sql/internal/shell"
 )
 
 func main() {
-	config.Init()
-	ui.ContextPrint("fire", "Hello World")
+	config.Initialize()
+	shell.Initialize()
+	shell.Display()
 }

@@ -33,8 +33,8 @@ type Configuration struct {
 // Load configurations to be used from other modules
 var Load Configuration
 
-// Init config parser
-func Init() {
+// Initialize config parser
+func Initialize() {
 	// parse configurations
 	loadConfigurations()
 }

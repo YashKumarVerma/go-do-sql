@@ -1,8 +1,11 @@
 package parser
 
 import (
+	"os"
 	"strconv"
 	"strings"
+
+	"github.com/YashKumarVerma/go-do-sql/internal/shell"
 
 	ui "github.com/YashKumarVerma/go-lib-ui"
 )
@@ -138,6 +141,7 @@ func GetStructuredCommands(commands []string) []StructuredCommandData {
 	for _, command := range commands {
 		if !checkIfGrammarCorrect(command) {
 			ui.ContextPrint("fire", "Invalid syntax of command in "+command)
+			os.Exit(1)
 		} else {
 			// ui.Info("parsing all data from command")
 			entitySchemas = append(entitySchemas, parseAllCommandData(command))
@@ -151,4 +155,9 @@ func GetStructuredCommands(commands []string) []StructuredCommandData {
 // Initialize sql parser
 func Initialize() {
 	ui.ContextPrint("brain", "Parsing SQL")
+	processedCommands = GetStructuredCommands(shell.ColumnStorage)
+	ui.ContextPrint("check_mark_button", "All checks passed")
 }
+
+// export data
+var processedCommands []StructuredCommandData

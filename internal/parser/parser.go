@@ -101,7 +101,6 @@ func parseAllCommandData(command string) StructuredCommandData {
 						data.Datatype = "VARCHAR(__LENGTH__)"
 					}
 				}
-				data.Datatype = val
 			}
 		case "auto_increment":
 			{
@@ -140,7 +139,7 @@ func GetStructuredCommands(commands []string) []StructuredCommandData {
 	entitySchemas := make([]StructuredCommandData, 0)
 	for _, command := range commands {
 		if !checkIfGrammarCorrect(command) {
-			ui.ContextPrint("fire", "Invalid syntax of command in "+command)
+			ui.ContextPrint("cross_mark", "Invalid syntax of command in "+command)
 			os.Exit(1)
 		} else {
 			// ui.Info("parsing all data from command")
@@ -155,9 +154,9 @@ func GetStructuredCommands(commands []string) []StructuredCommandData {
 // Initialize sql parser
 func Initialize() {
 	ui.ContextPrint("brain", "Parsing SQL")
-	processedCommands = GetStructuredCommands(shell.ColumnStorage)
+	ProcessedCommands = GetStructuredCommands(shell.ColumnStorage)
 	ui.ContextPrint("check_mark_button", "All checks passed")
 }
 
-// export data
-var processedCommands []StructuredCommandData
+// ProcessedCommands array to store all processed commands
+var ProcessedCommands []StructuredCommandData

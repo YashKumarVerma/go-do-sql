@@ -21,6 +21,11 @@ func commandToSQL(column parser.StructuredCommandData, tableName string) (string
 		sql += "NOT NULL "
 	}
 
+	// handle auto-increment
+	if column.AutoIncrement == true {
+		sql += "AUTO_INCREMENT "
+	}
+
 	if column.DefaultValue != "" {
 		sql += "DEFAULT " + writeAsPerDataType(column, column.DefaultValue)
 	}

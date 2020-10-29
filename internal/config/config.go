@@ -35,6 +35,6 @@ var Load Configuration
 
 // Initialize config parser
 func Initialize() {
-	// parse configurations
+	ui.ContextPrint("key", "Loading configurations")
 	loadConfigurations()
 }

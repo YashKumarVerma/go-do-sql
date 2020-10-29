@@ -3,6 +3,8 @@ package shell
 import (
 	"strings"
 
+	ui "github.com/YashKumarVerma/go-lib-ui"
+
 	"github.com/c-bata/go-prompt"
 )
 
@@ -56,5 +58,6 @@ func Display() {
 
 // Initialize command history storage
 func Initialize() {
+	ui.ContextPrint("spiral_shell", "Launching shell")
 	ColumnStorage = make([]string, 0)
 }

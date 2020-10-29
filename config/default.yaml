@@ -1,0 +1,8 @@
+app:
+  name: "go-sql"
+
+  # configurations about app behavior
+  emoji: true
+  
+  
+  

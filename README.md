@@ -44,6 +44,7 @@ Once you exit the shell, the cli generates the data for you. You can inspect the
 ![https://i.imgur.com/cAHlvax.png](https://i.imgur.com/cAHlvax.png)
 
 Often it might be problematic to copy from terminals due to various reason, therefore all the generated data can be found in the **`/output`** directory. All the files start with the table name as prefix, so do not worry about collisions.
+
 ![https://i.imgur.com/dZx8YgD.png](https://i.imgur.com/dZx8YgD.png)
 
 The **`*.insert.template.txt`** contains a single line with columns you need to insert while filling data manually. 

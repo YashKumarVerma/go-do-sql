@@ -4,5 +4,8 @@ app:
   # configurations about app behavior
   emoji: true
   
+  # configurations for data generation
+  generateInsertionTemplate : true
+  generateInsertionData : true
   
   

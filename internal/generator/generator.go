@@ -13,6 +13,7 @@ func Initialize() {
 	ui.ContextPrint("wrench", "Building code")
 	ui.ContextPrint("construction", "Building table : "+shell.TableName)
 	writeDataToDisk(writeSQL())
+	writeDataToDisk(generateTemplate())
 }
 
 func writeAsPerDataType(column parser.StructuredCommandData, data string) string {
@@ -45,4 +46,21 @@ func writeDataToDisk(filename string, dataToWrite string) bool {
 	ui.CheckError(fileCloseError, "Error closing file !", true)
 
 	return true
+}
+
+// function to assign default values based on datatype based on datatype
+func applyDefaults(column parser.StructuredCommandData, tableName string) (parser.StructuredCommandData, string) {
+	if column.Length == 0 {
+		switch column.Datatype {
+		case "INT(__LENGTH__)":
+			{
+				column.Length = 8
+			}
+		case "VARCHAR(__LENGTH__)":
+			{
+				column.Length = 64
+			}
+		}
+	}
+	return column, tableName
 }

@@ -54,23 +54,6 @@ func commandToSQL(column parser.StructuredCommandData, tableName string) (string
 	return sql, constraints
 }
 
-// function to assign default values based on datatype based on datatype
-func applyDefaults(column parser.StructuredCommandData, tableName string) (parser.StructuredCommandData, string) {
-	if column.Length == 0 {
-		switch column.Datatype {
-		case "INT(__LENGTH__)":
-			{
-				column.Length = 8
-			}
-		case "VARCHAR(__LENGTH__)":
-			{
-				column.Length = 64
-			}
-		}
-	}
-	return column, tableName
-}
-
 // writeSql : function to generate table generation commands and return s string
 func writeSQL() (string, string) {
 	// load data from other modules

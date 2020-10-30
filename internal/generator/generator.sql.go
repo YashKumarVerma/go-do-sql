@@ -78,7 +78,7 @@ func writeSQL() (string, string) {
 	schema := parser.ProcessedCommands
 
 	// filenames to access data from
-	outputFile := strings.ToLower(tableName) + ".txt"
+	outputFile := strings.ToLower(tableName) + ".table.txt"
 
 	// append data to generate final string
 	var sqlString string

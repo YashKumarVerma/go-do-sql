@@ -13,8 +13,8 @@ import (
 // AutoComplete suggestions from schema
 func autoComplete(document prompt.Document) []prompt.Suggest {
 	suggestions := []prompt.Suggest{
-		{Text: "--name", Description: "set name of column in table"},
-		{Text: "--primary", Description: "set to apply primary key constraint"},
+		{Text: "--name", Description: "name of column in table"},
+		{Text: "--primary", Description: "to apply primary key constraint"},
 		{Text: "--auto_increment", Description: "auto increment value of column"},
 
 		{Text: "--type:int", Description: "datatype of column as integer"},
@@ -23,10 +23,10 @@ func autoComplete(document prompt.Document) []prompt.Suggest {
 		{Text: "--type:datetime", Description: "datatype of column as date and time"},
 
 		{Text: "--length:10", Description: "if set, will pass length parameter inside datatype"},
-		{Text: "--unique", Description: "datatype of column as boolean"},
-		{Text: "--foreign:users(id)", Description: "id references id of table users"},
+		{Text: "--unique", Description: "add unique constraint"},
+		{Text: "--foreign:users(id)", Description: "link reference to another column"},
 		{Text: "--null", Description: "set to allow null values, else not null by default"},
-		{Text: "--default:val", Description: "default value of field"},
+		{Text: "--default:val", Description: "set default value"},
 	}
 	return prompt.FilterHasPrefix(suggestions, document.GetWordBeforeCursor(), true)
 }

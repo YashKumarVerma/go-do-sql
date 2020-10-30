@@ -21,6 +21,7 @@ type StructuredCommandData struct {
 	DefaultValue  string
 	Foreign       string
 	Null          bool
+	Fill          string
 }
 
 // validCommands : list of all commands that are accepted by shell
@@ -33,7 +34,8 @@ var validCommands = []string{
 	"--unique",
 	"--foreign",
 	"--null",
-	"--default"}
+	"--default",
+	"--fill"}
 
 // auxillary function to check if item exists in particular array
 func in(haystack []string, needle string) bool {
@@ -122,6 +124,10 @@ func parseAllCommandData(command string) StructuredCommandData {
 		case "foreign":
 			{
 				data.Foreign = val
+			}
+		case "fill":
+			{
+				data.Fill = val
 			}
 		case "default":
 			{

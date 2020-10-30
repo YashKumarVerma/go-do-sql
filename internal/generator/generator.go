@@ -8,12 +8,15 @@ import (
 	ui "github.com/YashKumarVerma/go-lib-ui"
 )
 
+var templateString string
+
 // Initialize code generator
 func Initialize() {
 	ui.ContextPrint("wrench", "Building code")
 	ui.ContextPrint("construction", "Building table : "+shell.TableName)
 	writeDataToDisk(writeSQL())
 	writeDataToDisk(generateTemplate())
+	writeDataToDisk(populateTemplate())
 }
 
 func writeAsPerDataType(column parser.StructuredCommandData, data string) string {

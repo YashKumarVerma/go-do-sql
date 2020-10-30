@@ -27,6 +27,18 @@ func autoComplete(document prompt.Document) []prompt.Suggest {
 		{Text: "--foreign:users(id)", Description: "link reference to another column"},
 		{Text: "--null", Description: "set to allow null values, else not null by default"},
 		{Text: "--default:val", Description: "set default value"},
+
+		{Text: "--fill:name", Description: "insert random name in this column"},
+		{Text: "--fill:email", Description: "insert random email in this column"},
+		{Text: "--fill:address", Description: "insert random address in this column"},
+		{Text: "--fill:city", Description: "insert random city in this column"},
+		{Text: "--fill:country", Description: "insert random country in this column"},
+		{Text: "--fill:zip", Description: "insert random zip in this column"},
+		{Text: "--fill:car-maker", Description: "insert random car-maker in this column"},
+		{Text: "--fill:color", Description: "insert random color in this column"},
+		{Text: "--fill:url", Description: "insert random url in this column"},
+		{Text: "--fill:animal", Description: "insert random animal in this column"},
+		{Text: "--fill:int", Description: "insert random int in this column"},
 	}
 	return prompt.FilterHasPrefix(suggestions, document.GetWordBeforeCursor(), true)
 }

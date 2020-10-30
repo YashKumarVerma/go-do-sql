@@ -27,7 +27,8 @@ func generateTemplate() (string, string) {
 			}
 		}
 	}
-	sql += ") VALUES ( __DATA_HERE__ );"
+	sql += ") VALUES (__DATA_HERE__);"
 	ui.ContextPrint("construction", "Building insertion template for : "+shell.TableName)
+	templateString = sql
 	return outputFile, sql
 }

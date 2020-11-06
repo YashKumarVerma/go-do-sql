@@ -1,6 +1,7 @@
 package generator
 
 import (
+	"strconv"
 	"strings"
 
 	"github.com/YashKumarVerma/go-do-sql/internal/parser"
@@ -21,7 +22,7 @@ func populateTemplate() (string, string) {
 		dataString := ""
 		for counter, command := range schema {
 			if command.AutoIncrement == false {
-				dataString += writeAsPerDataType(command, getRandomItem(command))
+				dataString += writeAsPerDataType(command, getRandomItem(command, counter))
 				if counter != len(schema)-1 {
 					dataString += ","
 				}
@@ -39,58 +40,11 @@ func populateTemplate() (string, string) {
 	return outputFile, finalFileContent
 }
 
-func getRandomItem(command parser.StructuredCommandData) string {
+func getRandomItem(command parser.StructuredCommandData, counter int) string {
 	if command.Fill == "" {
 		return "_"
 	}
 	gofakeit.Seed(0)
 
-	switch command.Fill {
-	case "name":
-		{
-			return gofakeit.Name()
-		}
-	case "email":
-		{
-			return gofakeit.Email()
-		}
-	case "address":
-		{
-			return gofakeit.StreetNumber() + ", " + gofakeit.StreetName()
-		}
-	case "city":
-		{
-			return gofakeit.City()
-		}
-	case "country":
-		{
-			return gofakeit.Country()
-		}
-	case "zip":
-		{
-			return gofakeit.Zip()
-		}
-	case "car":
-		{
-			return gofakeit.CarModel()
-		}
-	case "color":
-		{
-			return gofakeit.Color()
-		}
-	case "url":
-		{
-			return gofakeit.URL()
-		}
-	case "animal":
-		{
-			return gofakeit.Animal()
-		}
-	case "int":
-		{
-			return gofakeit.DigitN(uint(command.Length))
-		}
-	}
-
-	return "_"
+	return command.Fill + "_" + strconv.Itoa(counter)
 }

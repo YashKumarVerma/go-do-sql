@@ -88,7 +88,7 @@ func parseAllCommandData(command string) StructuredCommandData {
 				switch val {
 				case "int":
 					{
-						data.Datatype = "INT(__LENGTH__)"
+						data.Datatype = "NUMBER(__LENGTH__)"
 					}
 				case "bool":
 					{
@@ -100,7 +100,7 @@ func parseAllCommandData(command string) StructuredCommandData {
 					}
 				case "string", "default":
 					{
-						data.Datatype = "VARCHAR(__LENGTH__)"
+						data.Datatype = "VARCHAR2(__LENGTH__)"
 					}
 				}
 			}

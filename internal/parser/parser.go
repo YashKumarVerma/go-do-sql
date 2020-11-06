@@ -86,7 +86,7 @@ func parseAllCommandData(command string) StructuredCommandData {
 		case "type":
 			{
 				switch val {
-				case "int":
+				case "number":
 					{
 						data.Datatype = "NUMBER(__LENGTH__)"
 					}

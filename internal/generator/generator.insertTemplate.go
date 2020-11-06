@@ -16,7 +16,7 @@ func generateTemplate() (string, string) {
 	schema := parser.ProcessedCommands
 
 	// filenames to access data from
-	outputFile := strings.ToLower(tableName) + ".insert.template.txt"
+	outputFile := "template." + strings.ToLower(tableName) + ".txt"
 
 	sql := fmt.Sprintf("INSERT INTO %s (", tableName)
 	for counter, column := range schema {

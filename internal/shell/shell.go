@@ -17,7 +17,7 @@ func autoComplete(document prompt.Document) []prompt.Suggest {
 		{Text: "--primary", Description: "to apply primary key constraint"},
 		{Text: "--auto_increment", Description: "auto increment value of column"},
 
-		{Text: "--type:int", Description: "datatype of column as integer"},
+		{Text: "--type:number", Description: "datatype of column as integer"},
 		{Text: "--type:string", Description: "datatype of column as string"},
 		{Text: "--type:boolean", Description: "datatype of column as boolean"},
 		{Text: "--type:datetime", Description: "datatype of column as date and time"},
@@ -28,6 +28,7 @@ func autoComplete(document prompt.Document) []prompt.Suggest {
 		{Text: "--null", Description: "set to allow null values, else not null by default"},
 		{Text: "--default:val", Description: "set default value"},
 
+		{Text: "--fill:", Description: "custom fill"},
 		{Text: "--fill:name", Description: "insert random name in this column"},
 		{Text: "--fill:email", Description: "insert random email in this column"},
 		{Text: "--fill:address", Description: "insert random address in this column"},

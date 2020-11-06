@@ -21,7 +21,7 @@ func Initialize() {
 
 func writeAsPerDataType(column parser.StructuredCommandData, data string) string {
 
-	if column.Datatype == "int" || column.Datatype == "boolean" {
+	if column.Datatype == "int" || column.Datatype == "boolean" || column.Datatype == "NUMBER(__LENGTH__)" {
 		return data
 	}
 
@@ -55,11 +55,11 @@ func writeDataToDisk(filename string, dataToWrite string) bool {
 func applyDefaults(column parser.StructuredCommandData, tableName string) (parser.StructuredCommandData, string) {
 	if column.Length == 0 {
 		switch column.Datatype {
-		case "INT(__LENGTH__)":
+		case "NUMBER(__LENGTH__)":
 			{
 				column.Length = 8
 			}
-		case "VARCHAR(__LENGTH__)":
+		case "VARCHAR2(__LENGTH__)":
 			{
 				column.Length = 64
 			}

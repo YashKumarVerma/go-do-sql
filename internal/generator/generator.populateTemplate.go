@@ -17,12 +17,12 @@ func populateTemplate() (string, string) {
 	tableName := shell.TableName
 	schema := parser.ProcessedCommands
 	finalFileContent := ""
-	i := 0
-	for i < 10 {
+	i := 1
+	for i <= 20 {
 		dataString := ""
 		for counter, command := range schema {
 			if command.AutoIncrement == false {
-				dataString += writeAsPerDataType(command, getRandomItem(command, counter))
+				dataString += writeAsPerDataType(command, getRandomItem(command, i))
 				if counter != len(schema)-1 {
 					dataString += ","
 				}
@@ -35,14 +35,14 @@ func populateTemplate() (string, string) {
 	}
 
 	// filenames to access data from
-	outputFile := strings.ToLower(tableName) + ".insert.filled.txt"
+	outputFile := "data." + strings.ToLower(tableName) + ".txt"
 	ui.ContextPrint("construction", "Generating data for template : "+shell.TableName)
 	return outputFile, finalFileContent
 }
 
 func getRandomItem(command parser.StructuredCommandData, counter int) string {
 	if command.Fill == "" {
-		return "_"
+		return strconv.Itoa(counter)
 	}
 	gofakeit.Seed(0)
 
